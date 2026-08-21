@@ -1,0 +1,25 @@
+// Navigate to the YC Companies directory
+const url = new URL(input.url);
+navigate(url);
+
+// Wait for company cards to load
+const company_card_selector = '._company_18olp_357';
+wait(company_card_selector);
+
+// Use load_more to trigger infinite scroll and load all companies
+// The directory uses infinite scroll - companies load as you scroll down
+const results_container = '._results_18olp_345';
+load_more(results_container, {
+    children: company_card_selector,
+    timeout: 60000
+});
+
+// Parse all company URLs
+const {company_urls} = parse();
+
+console.log(`Found ${company_urls.length} companies`);
+
+// Pass each company URL to next stage for detailed extraction
+for (let company_url of company_urls) {
+    next_stage({url: company_url});
+}
