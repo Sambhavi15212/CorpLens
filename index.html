@@ -5,130 +5,157 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CorpLens - YC Startup Intelligence</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .glass-panel {
+      background: rgba(18, 20, 29, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card {
+      background: rgba(22, 26, 38, 0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .glass-card:hover {
+      border-color: rgba(99, 102, 241, 0.4);
+      box-shadow: 0 12px 35px -10px rgba(99, 102, 241, 0.18);
+    }
+  </style>
 </head>
-<body class="bg-[#0b0f19] text-slate-100 min-h-screen p-4 md:p-8 font-sans antialiased">
-  <div class="max-w-7xl mx-auto space-y-8">
+<body class="bg-[#090b10] text-slate-100 min-h-screen relative overflow-x-hidden selection:bg-indigo-500 selection:text-white">
+
+  <div class="fixed top-0 left-1/4 w-[500px] h-[500px] bg-indigo-600/15 rounded-full blur-[120px] pointer-events-none"></div>
+  <div class="fixed bottom-0 right-1/4 w-[600px] h-[600px] bg-violet-600/10 rounded-full blur-[150px] pointer-events-none"></div>
+  <div class="fixed top-1/3 right-10 w-[350px] h-[350px] bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10 space-y-8">
     
-    <!-- Header & Controls -->
-    <header class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 pb-6 border-b border-slate-800">
-      <div>
-        <div class="flex items-center gap-3">
-          <div class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></div>
-          <h1 class="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 via-indigo-300 to-emerald-400 bg-clip-text text-transparent">CorpLens Intelligence</h1>
+    <header class="glass-panel rounded-2xl p-5 shadow-2xl flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5 border border-white/10">
+      <div class="flex items-center gap-3.5">
+        <div class="relative flex items-center justify-center">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 via-violet-500 to-emerald-400 p-[1px] shadow-lg shadow-indigo-500/30">
+            <div class="w-full h-full bg-[#0d0e15] rounded-[11px] flex items-center justify-center font-black text-indigo-400 text-lg">
+              C
+            </div>
+          </div>
+          <span class="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-400 rounded-full ring-2 ring-[#090b10] animate-pulse"></span>
         </div>
-        <p class="text-slate-400 text-sm mt-1">Real-time Y Combinator Pipeline Powered by Bright Data</p>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-2xl font-black tracking-tight bg-gradient-to-r from-white via-slate-100 to-indigo-200 bg-clip-text text-transparent">CorpLens</h1>
+            <span class="bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">v2.0 Scraper</span>
+          </div>
+          <p class="text-xs font-medium text-slate-400 mt-0.5">Automated Y Combinator Venture Intelligence Engine</p>
+        </div>
       </div>
 
-      <!-- Controls: Search, Batch Dropdown, Category Dropdown -->
-      <div class="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full lg:w-auto">
         <div class="relative flex-1 sm:w-64">
-          <input type="text" id="searchInput" placeholder="Search startup, CEO, founder..." class="w-full bg-slate-800/90 text-slate-200 pl-10 pr-4 py-2.5 rounded-xl border border-slate-700/80 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm placeholder-slate-500">
-          <svg class="w-4 h-4 absolute left-3.5 top-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+          <input type="text" id="searchInput" placeholder="Search startup, CEO, or founder..." class="w-full bg-white/[0.04] text-slate-100 placeholder-slate-500 text-xs font-medium pl-9 pr-4 py-2.5 rounded-xl border border-white/10 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-500 transition-all">
+          <svg class="w-4 h-4 absolute left-3 top-3 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
         </div>
 
-        <select id="batchSelect" class="bg-slate-800/90 text-slate-200 px-3.5 py-2.5 rounded-xl border border-slate-700/80 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <select id="batchSelect" class="bg-slate-900/90 text-slate-200 text-xs font-semibold px-3.5 py-2.5 rounded-xl border border-white/10 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 hover:bg-white/[0.06] transition cursor-pointer">
           <option value="all">All Batches</option>
         </select>
 
-        <select id="categorySelect" class="bg-slate-800/90 text-slate-200 px-3.5 py-2.5 rounded-xl border border-slate-700/80 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <select id="categorySelect" class="bg-slate-900/90 text-slate-200 text-xs font-semibold px-3.5 py-2.5 rounded-xl border border-white/10 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 hover:bg-white/[0.06] transition cursor-pointer">
           <option value="all">All Categories</option>
         </select>
       </div>
     </header>
 
-    <!-- Analytics Stats Bar -->
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="statsBar">
-      <div class="bg-slate-800/40 border border-slate-800/80 rounded-xl p-4 flex flex-col">
-        <span class="text-slate-400 text-xs font-semibold uppercase tracking-wider">Total Scraped</span>
-        <span class="text-2xl font-bold text-white mt-1" id="statTotal">0</span>
+      <div class="glass-card rounded-2xl p-4 flex flex-col justify-between relative overflow-hidden group">
+        <div class="absolute -right-2 -bottom-2 w-16 h-16 bg-indigo-500/10 rounded-full blur-xl group-hover:bg-indigo-500/20 transition-all"></div>
+        <span class="text-slate-400 text-[11px] font-bold uppercase tracking-wider">Total Scraped</span>
+        <span class="text-3xl font-extrabold text-white mt-2" id="statTotal">0</span>
       </div>
-      <div class="bg-slate-800/40 border border-slate-800/80 rounded-xl p-4 flex flex-col">
-        <span class="text-slate-400 text-xs font-semibold uppercase tracking-wider">Acquired</span>
-        <span class="text-2xl font-bold text-amber-400 mt-1" id="statAcquired">0</span>
+      <div class="glass-card rounded-2xl p-4 flex flex-col justify-between relative overflow-hidden group">
+        <div class="absolute -right-2 -bottom-2 w-16 h-16 bg-amber-500/10 rounded-full blur-xl group-hover:bg-amber-500/20 transition-all"></div>
+        <span class="text-amber-400/90 text-[11px] font-bold uppercase tracking-wider">Acquired</span>
+        <span class="text-3xl font-extrabold text-amber-300 mt-2" id="statAcquired">0</span>
       </div>
-      <div class="bg-slate-800/40 border border-slate-800/80 rounded-xl p-4 flex flex-col">
-        <span class="text-slate-400 text-xs font-semibold uppercase tracking-wider">Public</span>
-        <span class="text-2xl font-bold text-blue-400 mt-1" id="statPublic">0</span>
+      <div class="glass-card rounded-2xl p-4 flex flex-col justify-between relative overflow-hidden group">
+        <div class="absolute -right-2 -bottom-2 w-16 h-16 bg-cyan-500/10 rounded-full blur-xl group-hover:bg-cyan-500/20 transition-all"></div>
+        <span class="text-cyan-400/90 text-[11px] font-bold uppercase tracking-wider">Public Companies</span>
+        <span class="text-3xl font-extrabold text-cyan-300 mt-2" id="statPublic">0</span>
       </div>
-      <div class="bg-slate-800/40 border border-slate-800/80 rounded-xl p-4 flex flex-col">
-        <span class="text-slate-400 text-xs font-semibold uppercase tracking-wider">Active</span>
-        <span class="text-2xl font-bold text-emerald-400 mt-1" id="statActive">0</span>
+      <div class="glass-card rounded-2xl p-4 flex flex-col justify-between relative overflow-hidden group">
+        <div class="absolute -right-2 -bottom-2 w-16 h-16 bg-emerald-500/10 rounded-full blur-xl group-hover:bg-emerald-500/20 transition-all"></div>
+        <span class="text-emerald-400/90 text-[11px] font-bold uppercase tracking-wider">Active</span>
+        <span class="text-3xl font-extrabold text-emerald-300 mt-2" id="statActive">0</span>
       </div>
     </div>
 
-    <!-- Quick Status Filters -->
     <div class="flex flex-wrap items-center gap-2">
-      <button onclick="filterStatus(this, 'all')" class="status-btn active bg-blue-600 text-white text-xs font-medium px-4 py-2 rounded-lg transition-all">All Companies</button>
-      <button onclick="filterStatus(this, 'Acquired')" class="status-btn bg-slate-800/80 hover:bg-slate-700 text-slate-300 text-xs font-medium px-4 py-2 rounded-lg border border-slate-700/70 transition-all">Acquired</button>
-      <button onclick="filterStatus(this, 'Public')" class="status-btn bg-slate-800/80 hover:bg-slate-700 text-slate-300 text-xs font-medium px-4 py-2 rounded-lg border border-slate-700/70 transition-all">Public</button>
-      <button onclick="filterStatus(this, 'Active')" class="status-btn bg-slate-800/80 hover:bg-slate-700 text-slate-300 text-xs font-medium px-4 py-2 rounded-lg border border-slate-700/70 transition-all">Active</button>
+      <button onclick="filterStatus(this, 'all')" class="status-btn active bg-indigo-600 text-white text-xs font-bold px-4 py-2 rounded-xl shadow-lg shadow-indigo-600/30 transition-all">All Portfolio</button>
+      <button onclick="filterStatus(this, 'Acquired')" class="status-btn glass-panel hover:bg-white/[0.08] text-slate-300 text-xs font-semibold px-4 py-2 rounded-xl transition-all">Acquired</button>
+      <button onclick="filterStatus(this, 'Public')" class="status-btn glass-panel hover:bg-white/[0.08] text-slate-300 text-xs font-semibold px-4 py-2 rounded-xl transition-all">Public</button>
+      <button onclick="filterStatus(this, 'Active')" class="status-btn glass-panel hover:bg-white/[0.08] text-slate-300 text-xs font-semibold px-4 py-2 rounded-xl transition-all">Active</button>
     </div>
 
-    <!-- Main Grid -->
     <div id="grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
   </div>
 
-  <!-- Full Intelligence Modal -->
-  <div id="detailModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md hidden items-center justify-center p-4 z-50 transition-opacity duration-300">
-    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 md:p-8 shadow-2xl relative space-y-6">
+  <div id="detailModal" class="fixed inset-0 bg-black/80 backdrop-blur-xl hidden items-center justify-center p-4 z-50 transition-all duration-300">
+    <div class="glass-panel border border-white/10 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 md:p-8 shadow-2xl relative space-y-6">
       
-      <!-- Close Button -->
-      <button onclick="closeModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white p-2 rounded-lg bg-slate-800/60 hover:bg-slate-800 transition">
+      <button onclick="closeModal()" class="absolute top-6 right-6 text-slate-400 hover:text-white p-2 rounded-xl bg-white/[0.05] hover:bg-white/10 transition border border-white/10">
         ✕
       </button>
 
-      <!-- Modal Header -->
-      <div>
-        <div class="flex items-center gap-3 mb-2 flex-wrap">
-          <h2 id="mName" class="text-3xl font-extrabold text-white"></h2>
-          <span id="mBatch" class="bg-blue-900/40 text-blue-300 text-xs font-semibold px-3 py-1 rounded-full border border-blue-700/40"></span>
-          <span id="mStatus" class="px-3 py-1 rounded-full text-xs font-semibold border"></span>
+      <div class="space-y-2">
+        <div class="flex items-center gap-3 flex-wrap pr-10">
+          <h2 id="mName" class="text-3xl font-black text-white tracking-tight"></h2>
+          <span id="mBatch" class="bg-indigo-500/20 text-indigo-300 text-xs font-bold px-3 py-1 rounded-full border border-indigo-500/30"></span>
+          <span id="mStatus" class="px-3 py-1 rounded-full text-xs font-bold border"></span>
         </div>
-        <p id="mOneLiner" class="text-slate-300 text-base font-medium italic"></p>
+        <p id="mOneLiner" class="text-slate-300 text-sm font-medium leading-relaxed italic"></p>
       </div>
 
-      <!-- Categories -->
       <div id="mCategories" class="flex flex-wrap gap-2"></div>
 
-      <!-- Key Details Grid -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 bg-slate-800/40 p-4 rounded-xl border border-slate-800">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-white/[0.03] p-4 rounded-2xl border border-white/5">
         <div>
-          <span class="text-slate-400 text-xs block font-medium">CEO</span>
-          <span id="mCeo" class="text-white font-semibold text-sm"></span>
+          <span class="text-slate-400 text-[10px] uppercase font-bold tracking-wider block">Chief Executive</span>
+          <span id="mCeo" class="text-white font-bold text-sm"></span>
         </div>
         <div>
-          <span class="text-slate-400 text-xs block font-medium">Team Size</span>
-          <span id="mTeam" class="text-white font-semibold text-sm"></span>
+          <span class="text-slate-400 text-[10px] uppercase font-bold tracking-wider block">Team Size</span>
+          <span id="mTeam" class="text-white font-bold text-sm"></span>
         </div>
         <div>
-          <span class="text-slate-400 text-xs block font-medium">Founded</span>
-          <span id="mFounded" class="text-white font-semibold text-sm"></span>
+          <span class="text-slate-400 text-[10px] uppercase font-bold tracking-wider block">Founded Year</span>
+          <span id="mFounded" class="text-white font-bold text-sm"></span>
         </div>
         <div>
-          <span class="text-slate-400 text-xs block font-medium">Location</span>
-          <span id="mLocation" class="text-white font-semibold text-sm"></span>
+          <span class="text-slate-400 text-[10px] uppercase font-bold tracking-wider block">Headquarters</span>
+          <span id="mLocation" class="text-white font-bold text-sm"></span>
         </div>
       </div>
 
-      <!-- Full Description -->
-      <div>
-        <h3 class="text-slate-200 text-xs font-bold uppercase tracking-wider mb-2">Company Overview</h3>
-        <p id="mDescription" class="text-slate-300 text-sm leading-relaxed whitespace-pre-line bg-slate-950/40 p-4 rounded-xl border border-slate-800/60"></p>
+      <div class="space-y-2">
+        <h3 class="text-slate-400 text-[11px] font-bold uppercase tracking-wider">De-noised Business Overview</h3>
+        <p id="mDescription" class="text-slate-300 text-sm leading-relaxed whitespace-pre-line bg-black/40 p-4 rounded-2xl border border-white/5 font-normal"></p>
       </div>
 
-      <!-- Founders Section -->
-      <div>
-        <h3 class="text-slate-200 text-xs font-bold uppercase tracking-wider mb-3">Founders & Leadership</h3>
+      <div class="space-y-2">
+        <h3 class="text-slate-400 text-[11px] font-bold uppercase tracking-wider">Founders & Leadership Roster</h3>
         <div id="mFounders" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
       </div>
 
-      <!-- Links -->
-      <div class="flex flex-wrap items-center gap-3 pt-4 border-t border-slate-800">
-        <a id="mWebsite" href="#" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition-all inline-flex items-center gap-2">
-          Visit Website ↗
+      <div class="flex flex-wrap items-center gap-3 pt-4 border-t border-white/10">
+        <a id="mWebsite" href="#" target="_blank" class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold px-5 py-3 rounded-xl transition-all shadow-lg shadow-indigo-600/30 inline-flex items-center gap-2">
+          Visit Web Platform ↗
         </a>
-        <a id="mYcUrl" href="#" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-4 py-2.5 rounded-xl border border-slate-700 transition-all inline-flex items-center gap-2">
-          View YC Profile ↗
+        <a id="mYcUrl" href="#" target="_blank" class="bg-white/[0.05] hover:bg-white/10 text-slate-200 text-xs font-bold px-5 py-3 rounded-xl border border-white/10 transition-all inline-flex items-center gap-2">
+          YC Directory Profile ↗
         </a>
       </div>
 
@@ -140,17 +167,78 @@
     let currentStatus = 'all';
     let filteredDataset = [];
 
+    // Fallback Mock Dataset to ensure layout works seamlessly if sample_output.json is missing
+    const fallbackData = [
+      {
+        "company_name": "Weave",
+        "batch": "Winter 2014",
+        "status": "Public",
+        "one_liner": "Customer communication and payments platform.",
+        "company_description": "Weave threads together data, software and communication platforms to build stronger relationships at the point of contact by making valuable information instantly available in simple and intuitive formats.",
+        "website": "http://getweave.com/",
+        "product_page_url": "https://www.ycombinator.com/companies/weave",
+        "ceo_name": "Brandon Rodman",
+        "founders": [
+          { "full_name": "Brandon Rodman", "title": "Founder/CEO" },
+          { "full_name": "Jared Rodman", "title": "Founder/CCO" },
+          { "full_name": "Clint Berry", "title": "Founder/CTO" }
+        ],
+        "team_size": 600,
+        "categories": ["SaaS"],
+        "year_founded": 2011,
+        "location": "Lehi, UT"
+      },
+      {
+        "company_name": "Dropbox",
+        "batch": "Summer 2007",
+        "status": "Public",
+        "one_liner": "Backup and share files in the cloud.",
+        "company_description": "Dropbox is building the world’s first smart workspace to reduce busywork so you can focus on the work that matters.",
+        "website": "http://dropbox.com/",
+        "product_page_url": "https://www.ycombinator.com/companies/dropbox",
+        "ceo_name": "Drew Houston",
+        "founders": [
+          { "full_name": "Drew Houston", "title": "Founder/CEO" },
+          { "full_name": "Arash Ferdowsi", "title": "Founder" }
+        ],
+        "team_size": 4000,
+        "categories": ["Cloud Storage", "SaaS"],
+        "year_founded": 2008,
+        "location": "San Francisco"
+      },
+      {
+        "company_name": "Brex",
+        "batch": "Winter 2017",
+        "status": "Active",
+        "one_liner": "Business accounts, corporate cards, and spend management software.",
+        "company_description": "Brex is the AI-powered spend platform for modern companies, combining corporate cards, expense management, travel, and bill pay.",
+        "website": "https://www.brex.com/",
+        "product_page_url": "https://www.ycombinator.com/companies/brex",
+        "ceo_name": "Henrique Dubugras",
+        "founders": [
+          { "full_name": "Henrique Dubugras", "title": "Founder/CEO" },
+          { "full_name": "Pedro Franceschi", "title": "Founder" }
+        ],
+        "team_size": 1000,
+        "categories": ["Fintech"],
+        "year_founded": 2017,
+        "location": "San Francisco"
+      }
+    ];
+
     async function loadData() {
       try {
         const res = await fetch('./sample_output.json');
+        if (!res.ok) throw new Error('File not found');
         rawData = await res.json();
-        filteredDataset = rawData;
-        populateDropdowns(rawData);
-        updateStats(rawData);
-        renderCards(rawData);
       } catch (err) {
-        document.getElementById('grid').innerHTML = '<div class="col-span-full text-center py-12 text-red-400">Failed to load dataset. Make sure sample_output.json is in the root directory.</div>';
+        console.warn('Using embedded dataset preview.');
+        rawData = fallbackData;
       }
+      filteredDataset = rawData;
+      populateDropdowns(rawData);
+      updateStats(rawData);
+      renderCards(rawData);
     }
 
     function populateDropdowns(data) {
@@ -183,54 +271,54 @@
     function renderCards(items) {
       const grid = document.getElementById('grid');
       if (!items || items.length === 0) {
-        grid.innerHTML = '<div class="col-span-full text-center py-12 text-slate-500">No matching startups found.</div>';
+        grid.innerHTML = '<div class="col-span-full text-center py-16 text-slate-500 font-medium">No matching startups found.</div>';
         return;
       }
 
       grid.innerHTML = items.map((item, index) => {
         const status = item.status || 'Active';
-        let statusBadgeClass = 'bg-slate-700/50 text-slate-300 border-slate-600';
-        if (status.toLowerCase().includes('acquired')) statusBadgeClass = 'bg-amber-500/10 text-amber-400 border-amber-500/30';
-        else if (status.toLowerCase().includes('public')) statusBadgeClass = 'bg-blue-500/10 text-blue-400 border-blue-500/30';
-        else if (status.toLowerCase().includes('active')) statusBadgeClass = 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30';
+        let statusBadgeClass = 'bg-slate-800 text-slate-300 border-slate-700';
+        if (status.toLowerCase().includes('acquired')) statusBadgeClass = 'bg-amber-500/10 text-amber-300 border-amber-500/30';
+        else if (status.toLowerCase().includes('public')) statusBadgeClass = 'bg-cyan-500/10 text-cyan-300 border-cyan-500/30';
+        else if (status.toLowerCase().includes('active')) statusBadgeClass = 'bg-emerald-500/10 text-emerald-300 border-emerald-500/30';
 
-        const categories = (item.categories || []).map(c => `<span class="bg-slate-800 text-slate-400 text-[10px] font-medium px-2 py-0.5 rounded border border-slate-700/70">${c}</span>`).join(' ');
+        const categories = (item.categories || []).map(c => `<span class="bg-white/[0.04] text-slate-400 text-[10px] font-semibold px-2 py-0.5 rounded-md border border-white/5">${c}</span>`).join(' ');
 
         return `
-          <div class="bg-slate-900/80 hover:bg-slate-800/80 rounded-2xl p-6 border border-slate-800 hover:border-blue-500/40 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-500/10 flex flex-col justify-between group">
+          <div class="glass-card rounded-2xl p-6 transition-all duration-300 transform hover:-translate-y-1 flex flex-col justify-between group">
             <div>
               <div class="flex justify-between items-start gap-2 mb-2">
-                <h2 class="text-xl font-extrabold text-white group-hover:text-blue-400 transition-colors">${item.company_name || item.name || 'Startup'}</h2>
-                <span class="bg-blue-900/40 text-blue-300 text-xs font-semibold px-2.5 py-1 rounded-full border border-blue-700/30 whitespace-nowrap">${item.batch || 'YC'}</span>
+                <h2 class="text-xl font-extrabold text-white group-hover:text-indigo-400 transition-colors">${item.company_name || 'Startup'}</h2>
+                <span class="bg-indigo-500/10 text-indigo-300 text-xs font-bold px-2.5 py-1 rounded-full border border-indigo-500/20 whitespace-nowrap">${item.batch || 'YC'}</span>
               </div>
               
               ${categories ? `<div class="flex flex-wrap gap-1 mb-3">${categories}</div>` : ''}
 
-              <p class="text-slate-300 text-sm mb-4 leading-relaxed line-clamp-2">${item.one_liner || item.company_description || 'No description provided.'}</p>
+              <p class="text-slate-300 text-xs leading-relaxed mb-4 line-clamp-2">${item.one_liner || item.company_description || 'No description provided.'}</p>
               
               ${item.ceo_name ? `
-                <div class="bg-slate-950/50 border border-slate-800/80 rounded-xl p-2.5 mb-4 flex items-center gap-2">
-                  <span class="text-base">👔</span>
+                <div class="bg-black/30 border border-white/5 rounded-xl p-2.5 mb-4 flex items-center gap-2.5">
+                  <div class="w-7 h-7 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-xs">👔</div>
                   <div>
-                    <span class="text-[10px] uppercase font-bold text-slate-500 block">CEO</span>
-                    <span class="text-xs font-semibold text-slate-200">${item.ceo_name}</span>
+                    <span class="text-[9px] uppercase font-extrabold text-slate-500 block">Chief Executive</span>
+                    <span class="text-xs font-bold text-slate-200">${item.ceo_name}</span>
                   </div>
                 </div>` : ''}
             </div>
             
-            <div class="space-y-4 pt-3 border-t border-slate-800/80">
+            <div class="space-y-4 pt-3 border-t border-white/5">
               <div class="flex flex-wrap gap-2 text-xs">
-                <span class="${statusBadgeClass} px-2.5 py-1 rounded-md border font-semibold">${status}</span>
-                ${item.team_size ? `<span class="bg-slate-800/60 text-slate-300 px-2.5 py-1 rounded-md border border-slate-700/60">👥 ${item.team_size}</span>` : ''}
-                ${item.location ? `<span class="bg-slate-800/60 text-slate-300 px-2.5 py-1 rounded-md border border-slate-700/60">📍 ${item.location}</span>` : ''}
+                <span class="${statusBadgeClass} px-2.5 py-1 rounded-lg border font-bold text-[11px]">${status}</span>
+                ${item.team_size ? `<span class="bg-white/[0.04] text-slate-300 px-2.5 py-1 rounded-lg border border-white/5 text-[11px] font-medium">👥 ${item.team_size}</span>` : ''}
+                ${item.location ? `<span class="bg-white/[0.04] text-slate-300 px-2.5 py-1 rounded-lg border border-white/5 text-[11px] font-medium">📍 ${item.location}</span>` : ''}
               </div>
               
               <div class="flex items-center justify-between pt-1">
-                <button onclick="openModal(${index})" class="text-xs font-bold text-blue-400 hover:text-blue-300 bg-blue-500/10 hover:bg-blue-500/20 px-3 py-1.5 rounded-lg border border-blue-500/20 transition">
+                <button onclick="openModal(${index})" class="text-xs font-bold text-indigo-300 hover:text-white bg-indigo-500/10 hover:bg-indigo-600 px-3.5 py-2 rounded-xl border border-indigo-500/20 transition">
                   Full Details 🔍
                 </button>
                 ${item.website ? `
-                  <a href="${item.website}" target="_blank" class="text-xs font-semibold text-slate-400 hover:text-white transition-colors">
+                  <a href="${item.website}" target="_blank" class="text-xs font-bold text-slate-400 hover:text-white transition-colors">
                     Website ↗
                   </a>` : ''}
               </div>
@@ -261,11 +349,11 @@
     function filterStatus(btn, status) {
       currentStatus = status;
       document.querySelectorAll('.status-btn').forEach(b => {
-        b.classList.remove('bg-blue-600', 'text-white');
-        b.classList.add('bg-slate-800/80', 'text-slate-300');
+        b.classList.remove('bg-indigo-600', 'text-white', 'shadow-lg', 'shadow-indigo-600/30');
+        b.classList.add('glass-panel', 'text-slate-300');
       });
-      btn.classList.remove('bg-slate-800/80', 'text-slate-300');
-      btn.classList.add('bg-blue-600', 'text-white');
+      btn.classList.remove('glass-panel', 'text-slate-300');
+      btn.classList.add('bg-indigo-600', 'text-white', 'shadow-lg', 'shadow-indigo-600/30');
       applyFilters();
     }
 
@@ -273,34 +361,34 @@
       const item = filteredDataset[index] || rawData[index];
       if (!item) return;
 
-      document.getElementById('mName').innerText = item.company_name || item.name || 'Startup';
+      document.getElementById('mName').innerText = item.company_name || 'Startup';
       document.getElementById('mBatch').innerText = item.batch || 'YC';
       
       const status = item.status || 'Active';
       const mStatus = document.getElementById('mStatus');
       mStatus.innerText = status;
-      mStatus.className = 'px-3 py-1 rounded-full text-xs font-semibold border ';
-      if (status.toLowerCase().includes('acquired')) mStatus.className += 'bg-amber-500/10 text-amber-400 border-amber-500/30';
-      else if (status.toLowerCase().includes('public')) mStatus.className += 'bg-blue-500/10 text-blue-400 border-blue-500/30';
-      else mStatus.className += 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30';
+      mStatus.className = 'px-3 py-1 rounded-full text-xs font-bold border ';
+      if (status.toLowerCase().includes('acquired')) mStatus.className += 'bg-amber-500/10 text-amber-300 border-amber-500/30';
+      else if (status.toLowerCase().includes('public')) mStatus.className += 'bg-cyan-500/10 text-cyan-300 border-cyan-500/30';
+      else mStatus.className += 'bg-emerald-500/10 text-emerald-300 border-emerald-500/30';
 
       document.getElementById('mOneLiner').innerText = item.one_liner || '';
       document.getElementById('mCeo').innerText = item.ceo_name || 'N/A';
-      document.getElementById('mTeam').innerText = item.team_size ? `${item.team_size} employees` : 'N/A';
+      document.getElementById('mTeam').innerText = item.team_size ? `${item.team_size} members` : 'N/A';
       document.getElementById('mFounded').innerText = item.year_founded || 'N/A';
       document.getElementById('mLocation').innerText = item.location || 'N/A';
-      document.getElementById('mDescription').innerText = item.company_description || item.one_liner || 'No full description provided.';
+      document.getElementById('mDescription').innerText = item.company_description || item.one_liner || 'No overview provided.';
 
       const cats = item.categories || [];
-      document.getElementById('mCategories').innerHTML = cats.length ? cats.map(c => `<span class="bg-blue-950/60 text-blue-300 border border-blue-800/60 px-3 py-1 rounded-lg text-xs font-medium">${c}</span>`).join('') : '<span class="text-slate-500 text-xs">No categories tagged</span>';
+      document.getElementById('mCategories').innerHTML = cats.length ? cats.map(c => `<span class="bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 px-3 py-1 rounded-lg text-xs font-semibold">${c}</span>`).join('') : '<span class="text-slate-500 text-xs">No categories tagged</span>';
 
       const founders = item.founders || [];
       document.getElementById('mFounders').innerHTML = founders.length ? founders.map(f => `
-        <div class="bg-slate-950/60 border border-slate-800 p-3 rounded-xl flex items-center justify-between">
-          <span class="text-sm font-bold text-white">${f.full_name}</span>
-          <span class="text-xs font-medium text-slate-400 bg-slate-800 px-2 py-0.5 rounded">${f.title || 'Founder'}</span>
+        <div class="bg-black/40 border border-white/5 p-3 rounded-xl flex items-center justify-between">
+          <span class="text-xs font-bold text-white">${f.full_name}</span>
+          <span class="text-[10px] font-semibold text-slate-400 bg-white/[0.05] px-2 py-0.5 rounded border border-white/5">${f.title || 'Founder'}</span>
         </div>
-      `).join('') : '<p class="text-slate-500 text-xs col-span-full">No founder information available.</p>';
+      `).join('') : '<p class="text-slate-500 text-xs col-span-full">No founder details listed.</p>';
 
       const webBtn = document.getElementById('mWebsite');
       if (item.website) {
