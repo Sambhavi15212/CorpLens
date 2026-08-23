@@ -1,7 +1,10 @@
 // Navigate to the Y Combinator companies directory
-navigate(input.url, {wait_until: 'navigate'});
+navigate(input.url);
 
-// Wait for the page to load and company links to appear
+// Wait for the page to fully load - the selector exists but needs time to render
+wait_timeout(3000);
+
+// Wait for company links to appear
 wait("a[href^='/companies/']");
 
 // Scroll down to trigger lazy loading
